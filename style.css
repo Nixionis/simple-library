@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  color: #5fa551;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  background-color: #011627;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+}
+
+/*Header*/
+
+header {
+  height: 60px;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 24px;
+  font-size: 2rem;
+
+  display: grid;
+  grid-template-columns: auto 1fr 1fr auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-wrap: nowrap;
+  gap: 24px;
+}
+
+.header-button {
+  padding: 6px 24px;
+  background-color: #32a287;
+  border: none;
+  border-radius: 12px;
+
+  color: #28131f;
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+
+  transition: background-color 0.15s;
+}
+
+.header-button:hover {
+  background-color: #27816c;
+}
+
+.header-button:active {
+  background-color: #277261;
+}
+
+header button svg {
+  width: 36px;
+  fill: #28131f;
+}
+
+.header-line {
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  margin-left: -100px;
+  margin-right: -100px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 5%,
+    #32a287 10%,
+    #32a287 90%,
+    transparent 95%
+  );
+  height: 5px;
+  opacity: 0.5;
+}
+
+.visibility-button {
+  position: relative;
+}
+
+.visible-state-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  color: #91a551;
+}
+
+/*Books Zone*/
+
+main {
+  width: min(80%, 1200px);
+  margin: 0 auto;
+  padding: 24px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  align-content: baseline;
+  justify-content: center;
+  gap: 24px;
+}
+
+/*Card Zone*/
+
+.book-card {
+  position: relative;
+  background-color: #1a2d3d;
+  height: 225px;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  -webkit-box-shadow: 0px 5px 15px 2px rgba(26, 45, 61, 1);
+  -moz-box-shadow: 0px 5px 15px 2px rgba(26, 45, 61, 1);
+  box-shadow: 0px 5px 15px 2px rgba(26, 45, 61, 1);
+}
+
+.card-line {
+  height: 100%;
+  width: 10px;
+}
+
+.read {
+  background-color: #32a287;
+}
+
+.not-read {
+  background-color: #af3a47;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 12px;
+  padding: 10px 10px 0 10px;
+}
+
+.book-title {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+
+  color: #91a551;
+  font-size: 1.8rem;
+  padding-right: 10px;
+}
+
+.delete-book-button {
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+}
+
+.book-description {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+
+  font-size: 1.4rem;
+  max-height: 100px;
+}
+
+.button-row {
+  grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+}
+
+.delete-book-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  background-color: #6a2e35;
+  border: none;
+  border-bottom-left-radius: 10px;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.delete-book-button:hover {
+  background-color: #864850;
+}
+
+.delete-book-button:active {
+  background-color: #a05b64;
+}
+
+.delete-book-button svg {
+  width: 18px;
+  fill: rgb(172, 172, 172);
+}
+
+.pages-text {
+  font-size: 1.4rem;
+  color: #91a551;
+}
+
+.read-text {
+  font-size: 1.4rem;
+}
+
+.button-row button {
+  padding: 4px 20px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.button-row button:hover {
+  opacity: 0.8;
+}
+
+.button-row button:active {
+  opacity: 0.65;
+}
+
+.add-button {
+  margin-left: -10px;
+  background-color: #91a551;
+}
+
+.remove-button {
+  background-color: #af3a47;
+  border-top-right-radius: 8px;
+}
+
+.add-button,
+.remove-button {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #212028;
+}
+
+.mark-button {
+  justify-self: end;
+  margin-right: -10px;
+  background-color: #a7a38e;
+  border-top-left-radius: 8px;
+}
