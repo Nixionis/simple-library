@@ -22,6 +22,8 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 20px;
+
+  position: relative;
 }
 
 /*Header*/
@@ -107,12 +109,12 @@ header button svg {
 /*Books Zone*/
 
 main {
-  width: min(80%, 1200px);
+  width: min(95%, 1200px);
   margin: 0 auto;
   padding: 24px;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, 250px);
   align-content: baseline;
   justify-content: center;
   gap: 24px;
@@ -139,6 +141,8 @@ main {
 .card-line {
   height: 100%;
   width: 10px;
+
+  transition: background-color 0.25s;
 }
 
 .read {
@@ -236,6 +240,10 @@ main {
   opacity: 0.65;
 }
 
+.button-row button:disabled {
+  opacity: 0.25;
+}
+
 .add-button {
   margin-left: -10px;
   background-color: #91a551;
@@ -258,4 +266,110 @@ main {
   margin-right: -10px;
   background-color: #a7a38e;
   border-top-left-radius: 8px;
+}
+
+/*Dialog*/
+
+dialog {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #1a2d3d;
+
+  /* border: 6px solid #32a287;*/
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 12px;
+  padding-bottom: 48px;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-header {
+  color: #91a551;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.dialog-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.dialog-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  grid-column: 1 / -1;
+
+  color: #5fa551;
+  font-size: 1.6rem;
+}
+
+.dialog-form .inline-label {
+  flex-direction: row;
+  gap: 20px;
+}
+
+.dialog-form label input,
+.dialog-form label textarea {
+  background-color: #01121f;
+  border: none;
+  padding: 6px 10px;
+  color: #718ebf;
+  font-size: 1.6rem;
+  resize: none;
+  min-width: none;
+}
+
+.dialog-form .max-page-label,
+.dialog-form .cur-page-label {
+  grid-column: span 1;
+  max-width: 100px;
+}
+
+.cancel-dialog-btn,
+.submit-dialog-btn {
+  position: absolute;
+  bottom: 0px;
+
+  padding: 6px 10px;
+
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.cancel-dialog-btn:hover,
+.submit-dialog-btn:hover {
+  opacity: 0.8;
+}
+
+.cancel-dialog-btn:active,
+.submit-dialog-btn:active {
+  opacity: 0.6;
+}
+
+.submit-dialog-btn:disabled {
+  opacity: 0.25;
+}
+
+.cancel-dialog-btn {
+  left: 0;
+  border-top-right-radius: 12px;
+  background-color: #f1ecce;
+}
+
+.submit-dialog-btn {
+  right: 0;
+  border-top-left-radius: 12px;
+  background-color: #91a551;
 }

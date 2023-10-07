@@ -34,86 +34,37 @@
       </button>
       <div class="header-line"></div>
     </header>
-    <main>
-      <div class="book-card">
-        <div class="card-line read"></div>
-        <div class="card-content">
-          <p class="book-title">Harry Potter and sacred room</p>
-          
-          <p class="book-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iste doloribus blanditiis laboriosam, commodi incidunt, id, nobis sint quae voluptate at expedita! Id at libero repellat adipisci fuga temporibus enim!
-          </p>
-          <p class="pages-text">
-            <span class="read-pages">0</span>
-              of <span class="max-pages">174</span></span
-            > pages
-          </p>
-          <p class="read-text">read</p>
-          <div class="button-row">
-            <button class="add-button">+</button>
-            <button class="remove-button">-</button>
-            <button class="mark-button">Mark read</button>
-          </div>
-        </div>
-        <button class="delete-book-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg></button>
-      </div>
-
-      <div class="book-card">
-        <div class="card-line not-read"></div>
-        <div class="card-content">
-          <p class="book-title">Harry Potter</p>
-          <button class="delete-book-button">X</button>
-          <p class="book-description">Story of a survived kid.</p>
-          <p class="pages-text">
-            <span class="read-pages">0</span>
-              of <span class="max-pages">174</span></span
-            >
-          </p>
-          <p class="read-text">read</p>
-          <div class="button-row">
-            <button class="add-button">+</button>
-            <button class="remove-button">-</button>
-            <button class="mark-button">Mark read</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-card">
-        <div class="card-line not-read"></div>
-        <div class="card-content">
-          <p class="book-title">Harry Potter</p>
-          <button class="delete-book-button">X</button>
-          <p class="book-description">Story of a survived kid.</p>
-          <p class="pages-text">
-            <span class="read-pages">0</span>
-              of <span class="max-pages">174</span></span
-            >
-          </p>
-          <p class="read-text">read</p>
-          <div class="button-row">
-            <button class="add-button">+</button>
-            <button class="remove-button">-</button>
-            <button class="mark-button">Mark read</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-card">
-        <div class="card-line not-read"></div>
-        <div class="card-content">
-          <p class="book-title">Harry Potter</p>
-          <button class="delete-book-button">X</button>
-          <p class="book-description">Story of a survived kid.</p>
-          <p class="pages-text">
-            <span class="read-pages">0</span>
-              of <span class="max-pages">174</span></span
-            >
-          </p>
-          <p class="read-text">read</p>
-          <div class="button-row">
-            <button class="add-button">+</button>
-            <button class="remove-button">-</button>
-            <button class="mark-button">Mark read</button>
-          </div>
-        </div>
-      </div>
-    </main>
+    <main class="books-grid"></main>
+    <dialog>
+      <p class="dialog-header">Adding new book</p>
+      <form class="dialog-form" method="dialog">
+        <label for="book-name">
+          Name
+          <input id="book-name" type="text" placeholder="Harry Potter" />
+        </label>
+        <label for="book-desc">
+          Description
+          <textarea
+            id="book-desc"
+            rows="10"
+            placeholder="Some description..."
+          ></textarea>
+        </label>
+        <label class="max-page-label" for="max-pages">
+          Max Pages
+          <input type="number" id="max-pages" value="0" min="0" />
+        </label>
+        <label class="cur-page-label" for="current-page">
+          Current Page
+          <input type="number" id="current-page" value="0" min="0" />
+        </label>
+        <label for="read-status" class="inline-label">
+          Read
+          <input type="checkbox" id="read-status" />
+        </label>
+        <button class="cancel-dialog-btn" type="button">Cancel</button>
+        <button class="submit-dialog-btn" type="submit" disabled>Add</button>
+      </form>
+    </dialog>
   </body>
 </html>
