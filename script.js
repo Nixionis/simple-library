@@ -13,16 +13,48 @@ const addButton = document.querySelector('.submit-dialog-btn');
 
 let visibilityType = 0;
 
-function Book(title, description, currentPage, maxPages, readStatus) {
-    this.title = title;
-    this.description = description;
-    this.currentPage = currentPage;
-    this.maxPages = maxPages;
-    this.readStatus = readStatus;
+class Book {
+    constructor(title, description, currentPage, maxPages, readStatus) {
+        this.title = title;
+        this.description = description;
+        this.currentPage = currentPage;
+        this.maxPages = maxPages;
+        this.readStatus = readStatus;
+    }
+
+    set maxPages(value) {
+        console.log(this.currentPage, value);
+        if (this.currentPage > value || value < 1)
+            return;
+
+        this._maxPages = value;
+    }
+
+    get maxPages() {
+        return this._maxPages;
+    }
+
+    set currentPage(value) {
+        if (value < 0)
+            return;
+
+        this._currentPage = value;
+    }
+
+    get currentPage() {
+        return this._currentPage;
+    }
 }
 
 function addBook() {
+    const bookName = nameInput.value;
+    const bookDesc = descInput.value;
+    const maxPages = Number(maxPagesInput.value);
+    const curPage = Number(curPagesInput.value);
+    const read = readInput.checked;
 
+    const newBook = new Book(bookName, bookDesc, curPage, maxPages, read);
+    booksArray.push(newBook);
 }
 
 function checkValidation() {
@@ -156,14 +188,7 @@ document.querySelector('.cancel-dialog-btn').addEventListener('click', (event) =
 addDialog.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const bookName = nameInput.value;
-    const bookDesc = descInput.value;
-    const maxPages = Number(maxPagesInput.value);
-    const curPage = Number(curPagesInput.value);
-    const read = readInput.checked;
-
-    const newBook = new Book(bookName, bookDesc, curPage, maxPages, read);
-    booksArray.push(newBook);
+    addBook();
 
     nameInput.value = '';
     descInput.value = '';
